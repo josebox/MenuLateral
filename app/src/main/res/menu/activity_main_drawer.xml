@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <!--group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_camera"
+            android:icon="@drawable/ic_menu_camera"
+            android:title="Import" />
+        <item
+            android:id="@+id/nav_gallery"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Gallery" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Slideshow" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Tools" />
+    </group-->
+
+        <item
+            android:id="@+id/nav_tablon"
+            android:title="TABLON">
+            <menu>
+                <item
+                    android:id="@+id/nav_ofertas"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="Ofertas" />
+                <item
+                    android:id="@+id/nav_demandas"
+                    android:icon="@drawable/ic_menu_send"
+                    android:title="Demandas" />
+            </menu>
+        </item>
+        <item android:title="MIS ANUNCIOS">
+            <menu>
+                <item
+                    android:id="@+id/nav_Actuales"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="Actuales" />
+                <item
+                    android:id="@+id/nav_historial"
+                    android:icon="@drawable/ic_menu_send"
+                    android:title="Historial" />
+            </menu>
+        </item>
+        <item android:title="VALORACIONES">
+            <menu>
+                <item
+                    android:id="@+id/nav_recibidas"
+                    android:icon="@drawable/ic_menu_share"
+                    android:title="Recibidas" />
+                <item
+                    android:id="@+id/nav_enviadas"
+                    android:icon="@drawable/ic_menu_send"
+                    android:title="Enviadas" />
+            </menu>
+        </item>
+
+
+</menu>
