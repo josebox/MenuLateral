@@ -137,6 +137,7 @@ public class MainActivity extends AppCompatActivity
             fragmentManager.beginTransaction().replace(R.id.contenedor,new ofertasFragment()).commit();
             btn_izquerdo.setText(R.string.ofertas);
             btn_dercho.setText(R.string.demandas);
+            //que te den adri
 
         } else if (id == R.id.nav_demandas) {
             String uno = "2";
