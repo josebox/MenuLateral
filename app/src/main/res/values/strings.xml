@@ -3,6 +3,14 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!-- Nombre botones fragment-->
+    <string name="ofertas">OFERTAS</string>
+    <string name="demandas">DEMANDAS</string>
+    <string name="actuales">ACTUALES</string>
+    <string name="historial">HISTORIALES</string>
+    <string name="recibidas">RECIBIDAS</string>
+    <string name="enviadas">ENVIADAS</string>
+
 
     <string name="action_settings">Settings</string>
 

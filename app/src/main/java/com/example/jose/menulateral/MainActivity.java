@@ -2,9 +2,11 @@ package com.example.jose.menulateral;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -15,9 +17,34 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity
+
         implements NavigationView.OnNavigationItemSelectedListener {
+    //botones activity_main izq/dere
+    protected Button btn_dercho,btn_izquerdo;
+    protected TextView tv_der,tv_izq;
+
+    private void panelDerecho(){
+        android.support.v4.app.Fragment fragmentoDerecho = new demandasFragment();
+        android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction t = fm.beginTransaction();
+        t.replace(R.id.contenedor,fragmentoDerecho);
+        t.commit();
+    }
+
+    private void panelIzquierdo(){
+        android.support.v4.app.Fragment fragmentoIzquierdo = new ofertasFragment();
+        android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+        FragmentTransaction t = fm.beginTransaction();
+        t.replace(R.id.contenedor,fragmentoIzquierdo);
+        t.commit();
+    }
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +69,27 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //texto derecho e izquierdo
+
+
+        //navegación desde el tablon boton derecho e izquierdo
+        btn_dercho = (Button)findViewById(R.id.btn_der);
+        btn_izquerdo = (Button)findViewById(R.id.btn_izq);
+
+        btn_dercho.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                panelDerecho();
+            }
+        });
+        btn_izquerdo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                panelIzquierdo();
+            }
+        });
+
+
     }
 
     @Override
@@ -84,17 +132,40 @@ public class MainActivity extends AppCompatActivity
       android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
 
         if (id == R.id.nav_ofertas) {
+            String uno = "1";
+            ofertasFragment.numero(uno);
             fragmentManager.beginTransaction().replace(R.id.contenedor,new ofertasFragment()).commit();
+            btn_izquerdo.setText(R.string.ofertas);
+            btn_dercho.setText(R.string.demandas);
+
         } else if (id == R.id.nav_demandas) {
-            fragmentManager.beginTransaction().replace(R.id.contenedor,new demandasFragment()).commit();
+            String uno = "2";
+            ofertasFragment.numero(uno);
+            fragmentManager.beginTransaction().replace(R.id.contenedor,new ofertasFragment()).commit();
+            btn_izquerdo.setText(R.string.ofertas);
+            btn_dercho.setText(R.string.demandas);
+
         } else if (id == R.id.nav_Actuales) {
+            ofertasFragment of=new ofertasFragment();
+            fragmentManager.beginTransaction().replace(R.id.contenedor,of).commit();
+            btn_izquerdo.setText(R.string.actuales);
+            btn_dercho.setText(R.string.historial);
+
 
         } else if (id == R.id.nav_historial) {
+            fragmentManager.beginTransaction().replace(R.id.contenedor,new demandasFragment()).commit();
+            btn_izquerdo.setText(R.string.actuales);
+            btn_dercho.setText(R.string.historial);
 
         } else if (id == R.id.nav_recibidas) {
+            fragmentManager.beginTransaction().replace(R.id.contenedor,new ofertasFragment()).commit();
+            btn_izquerdo.setText(R.string.recibidas);
+            btn_dercho.setText(R.string.enviadas);
 
         } else if (id == R.id.nav_enviadas) {
-            Log.v("Clicado", "Clicado nav_enviadas");
+            fragmentManager.beginTransaction().replace(R.id.contenedor,new demandasFragment()).commit();
+            btn_izquerdo.setText(R.string.recibidas);
+            btn_dercho.setText(R.string.enviadas);
 
         }else if (id==R.id.nav_tablon)
         {
